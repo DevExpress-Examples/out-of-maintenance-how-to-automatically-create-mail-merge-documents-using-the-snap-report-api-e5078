@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-'#pragma warning disable 1591
+#Disable Warning 1591
 
 Namespace MailMergeServer
 
@@ -48,7 +48,7 @@ Namespace MailMergeServer
                 AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
                 Return
             End If
-            Dim strSchema As String = (DirectCast(info.GetValue("XmlSchema", GetType(String)), String))
+            Dim strSchema As String = (CStr(info.GetValue("XmlSchema", GetType(String))))
             If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
                 Dim ds As New Global.System.Data.DataSet()
                 ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
@@ -122,7 +122,7 @@ Namespace MailMergeServer
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataSet
-            Dim cln As nwindDataSet = (DirectCast(MyBase.Clone(), nwindDataSet))
+            Dim cln As nwindDataSet = (CType(MyBase.Clone(), nwindDataSet))
             cln.InitVars()
             cln.SchemaSerializationMode = Me.SchemaSerializationMode
             Return cln
@@ -244,7 +244,7 @@ Namespace MailMergeServer
                     dsSchema.Write(s1)
                     Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                     Do While schemas.MoveNext()
-                        schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                        schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
@@ -378,7 +378,7 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As CategoriesRow
                 Get
-                    Return (DirectCast(Me.Rows(index), CategoriesRow))
+                    Return (CType(Me.Rows(index), CategoriesRow))
                 End Get
             End Property
 
@@ -401,7 +401,7 @@ Namespace MailMergeServer
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddCategoriesRow(ByVal CategoryName As String, ByVal Description As String, ByVal Picture() As Byte, ByVal Icon_17() As Byte, ByVal Icon_25() As Byte) As CategoriesRow
-                Dim rowCategoriesRow As CategoriesRow = (DirectCast(Me.NewRow(), CategoriesRow))
+                Dim rowCategoriesRow As CategoriesRow = (CType(Me.NewRow(), CategoriesRow))
                 Dim columnValuesArray() As Object = { Nothing, CategoryName, Description, Picture, Icon_17, Icon_25}
                 rowCategoriesRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowCategoriesRow)
@@ -410,12 +410,12 @@ Namespace MailMergeServer
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByCategoryID(ByVal CategoryID As Integer) As CategoriesRow
-                Return (DirectCast(Me.Rows.Find(New Object() { CategoryID}), CategoriesRow))
+                Return (CType(Me.Rows.Find(New Object() { CategoryID}), CategoriesRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As CategoriesDataTable = (DirectCast(MyBase.Clone(), CategoriesDataTable))
+                Dim cln As CategoriesDataTable = (CType(MyBase.Clone(), CategoriesDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -461,7 +461,7 @@ Namespace MailMergeServer
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewCategoriesRow() As CategoriesRow
-                Return (DirectCast(Me.NewRow(), CategoriesRow))
+                Return (CType(Me.NewRow(), CategoriesRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -477,25 +477,25 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent CategoriesRowChanged(Me, New CategoriesRowChangeEvent((DirectCast(e.Row, CategoriesRow)), e.Action))
+                RaiseEvent CategoriesRowChanged(Me, New CategoriesRowChangeEvent((CType(e.Row, CategoriesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent CategoriesRowChanging(Me, New CategoriesRowChangeEvent((DirectCast(e.Row, CategoriesRow)), e.Action))
+                RaiseEvent CategoriesRowChanging(Me, New CategoriesRowChangeEvent((CType(e.Row, CategoriesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent CategoriesRowDeleted(Me, New CategoriesRowChangeEvent((DirectCast(e.Row, CategoriesRow)), e.Action))
+                RaiseEvent CategoriesRowDeleted(Me, New CategoriesRowChangeEvent((CType(e.Row, CategoriesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent CategoriesRowDeleting(Me, New CategoriesRowChangeEvent((DirectCast(e.Row, CategoriesRow)), e.Action))
+                RaiseEvent CategoriesRowDeleting(Me, New CategoriesRowChangeEvent((CType(e.Row, CategoriesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -537,7 +537,7 @@ Namespace MailMergeServer
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -711,7 +711,7 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As ProductsRow
                 Get
-                    Return (DirectCast(Me.Rows(index), ProductsRow))
+                    Return (CType(Me.Rows(index), ProductsRow))
                 End Get
             End Property
 
@@ -734,7 +734,7 @@ Namespace MailMergeServer
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddProductsRow(ByVal ProductName As String, ByVal SupplierID As Integer, ByVal parentCategoriesRowByCategoriesProducts As CategoriesRow, ByVal QuantityPerUnit As String, ByVal UnitPrice As Decimal, ByVal UnitsInStock As Short, ByVal UnitsOnOrder As Short, ByVal ReorderLevel As Short, ByVal Discontinued As Boolean, ByVal EAN13 As String) As ProductsRow
-                Dim rowProductsRow As ProductsRow = (DirectCast(Me.NewRow(), ProductsRow))
+                Dim rowProductsRow As ProductsRow = (CType(Me.NewRow(), ProductsRow))
                 Dim columnValuesArray() As Object = { Nothing, ProductName, SupplierID, Nothing, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued, EAN13}
                 If (parentCategoriesRowByCategoriesProducts IsNot Nothing) Then
                     columnValuesArray(3) = parentCategoriesRowByCategoriesProducts(0)
@@ -746,12 +746,12 @@ Namespace MailMergeServer
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByProductID(ByVal ProductID As Integer) As ProductsRow
-                Return (DirectCast(Me.Rows.Find(New Object() { ProductID}), ProductsRow))
+                Return (CType(Me.Rows.Find(New Object() { ProductID}), ProductsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As ProductsDataTable = (DirectCast(MyBase.Clone(), ProductsDataTable))
+                Dim cln As ProductsDataTable = (CType(MyBase.Clone(), ProductsDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -823,7 +823,7 @@ Namespace MailMergeServer
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewProductsRow() As ProductsRow
-                Return (DirectCast(Me.NewRow(), ProductsRow))
+                Return (CType(Me.NewRow(), ProductsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -839,25 +839,25 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent ProductsRowChanged(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowChanged(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent ProductsRowChanging(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowChanging(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent ProductsRowDeleted(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowDeleted(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent ProductsRowDeleting(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowDeleting(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -899,7 +899,7 @@ Namespace MailMergeServer
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -944,7 +944,7 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property CategoryID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableCategories.CategoryIDColumn), Integer))
+                    Return (CInt((Me(Me.tableCategories.CategoryIDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableCategories.CategoryIDColumn) = value
@@ -955,7 +955,7 @@ Namespace MailMergeServer
             Public Property CategoryName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCategories.CategoryNameColumn), String))
+                        Return (CStr(Me(Me.tableCategories.CategoryNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'CategoryName' in table 'Categories' is DBNull.", e)
                     End Try
@@ -969,7 +969,7 @@ Namespace MailMergeServer
             Public Property Description() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCategories.DescriptionColumn), String))
+                        Return (CStr(Me(Me.tableCategories.DescriptionColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'Categories' is DBNull.", e)
                     End Try
@@ -983,7 +983,7 @@ Namespace MailMergeServer
             Public Property Picture() As Byte()
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCategories.PictureColumn), Byte()))
+                        Return (CType(Me(Me.tableCategories.PictureColumn), Byte()))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Picture' in table 'Categories' is DBNull.", e)
                     End Try
@@ -997,7 +997,7 @@ Namespace MailMergeServer
             Public Property Icon_17() As Byte()
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCategories.Icon_17Column), Byte()))
+                        Return (CType(Me(Me.tableCategories.Icon_17Column), Byte()))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Icon_17' in table 'Categories' is DBNull.", e)
                     End Try
@@ -1011,7 +1011,7 @@ Namespace MailMergeServer
             Public Property Icon_25() As Byte()
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCategories.Icon_25Column), Byte()))
+                        Return (CType(Me(Me.tableCategories.Icon_25Column), Byte()))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Icon_25' in table 'Categories' is DBNull.", e)
                     End Try
@@ -1098,7 +1098,7 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property ProductID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableProducts.ProductIDColumn), Integer))
+                    Return (CInt((Me(Me.tableProducts.ProductIDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableProducts.ProductIDColumn) = value
@@ -1109,7 +1109,7 @@ Namespace MailMergeServer
             Public Property ProductName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.ProductNameColumn), String))
+                        Return (CStr(Me(Me.tableProducts.ProductNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ProductName' in table 'Products' is DBNull.", e)
                     End Try
@@ -1123,7 +1123,7 @@ Namespace MailMergeServer
             Public Property SupplierID() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.SupplierIDColumn), Integer))
+                        Return (CInt((Me(Me.tableProducts.SupplierIDColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'SupplierID' in table 'Products' is DBNull.", e)
                     End Try
@@ -1137,7 +1137,7 @@ Namespace MailMergeServer
             Public Property CategoryID() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.CategoryIDColumn), Integer))
+                        Return (CInt((Me(Me.tableProducts.CategoryIDColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'CategoryID' in table 'Products' is DBNull.", e)
                     End Try
@@ -1151,7 +1151,7 @@ Namespace MailMergeServer
             Public Property QuantityPerUnit() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.QuantityPerUnitColumn), String))
+                        Return (CStr(Me(Me.tableProducts.QuantityPerUnitColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'QuantityPerUnit' in table 'Products' is DBNull.", e)
                     End Try
@@ -1165,7 +1165,7 @@ Namespace MailMergeServer
             Public Property UnitPrice() As Decimal
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.UnitPriceColumn), Decimal))
+                        Return (CDec(Me(Me.tableProducts.UnitPriceColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitPrice' in table 'Products' is DBNull.", e)
                     End Try
@@ -1179,7 +1179,7 @@ Namespace MailMergeServer
             Public Property UnitsInStock() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.UnitsInStockColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableProducts.UnitsInStockColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitsInStock' in table 'Products' is DBNull.", e)
                     End Try
@@ -1193,7 +1193,7 @@ Namespace MailMergeServer
             Public Property UnitsOnOrder() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.UnitsOnOrderColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableProducts.UnitsOnOrderColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitsOnOrder' in table 'Products' is DBNull.", e)
                     End Try
@@ -1207,7 +1207,7 @@ Namespace MailMergeServer
             Public Property ReorderLevel() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.ReorderLevelColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableProducts.ReorderLevelColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ReorderLevel' in table 'Products' is DBNull.", e)
                     End Try
@@ -1221,7 +1221,7 @@ Namespace MailMergeServer
             Public Property Discontinued() As Boolean
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.DiscontinuedColumn), Boolean))
+                        Return (CBool(Me(Me.tableProducts.DiscontinuedColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Discontinued' in table 'Products' is DBNull.", e)
                     End Try
@@ -1235,7 +1235,7 @@ Namespace MailMergeServer
             Public Property EAN13() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.EAN13Column), String))
+                        Return (CStr(Me(Me.tableProducts.EAN13Column)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'EAN13' in table 'Products' is DBNull.", e)
                     End Try
@@ -1248,7 +1248,7 @@ Namespace MailMergeServer
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property CategoriesRow() As CategoriesRow
                 Get
-                    Return (DirectCast(Me.GetParentRow(Me.Table.ParentRelations("CategoriesProducts")), CategoriesRow))
+                    Return (CType(Me.GetParentRow(Me.Table.ParentRelations("CategoriesProducts")), CategoriesRow))
                 End Get
                 Set(ByVal value As CategoriesRow)
                     Me.SetParentRow(value, Me.Table.ParentRelations("CategoriesProducts"))
@@ -1631,7 +1631,7 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
             If (Original_CategoryName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_CategoryName")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = (CStr(Original_CategoryName))
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
@@ -1720,7 +1720,7 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
             If (Original_CategoryName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_CategoryName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(6).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(7).Value = (CStr(Original_CategoryName))
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
@@ -1996,65 +1996,65 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
             If (Original_ProductName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ProductName")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = (CStr(Original_ProductName))
             End If
             If (Original_SupplierID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = (CInt(Original_SupplierID.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (Original_CategoryID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(6).Value = (CInt(Original_CategoryID.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Original_QuantityPerUnit Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(7).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(7).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(8).Value = (CStr(Original_QuantityPerUnit))
             End If
             If (Original_UnitPrice.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(9).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(10).Value = (CDec(Original_UnitPrice.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(9).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Original_UnitsInStock.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(11).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(12).Value = (CShort(Original_UnitsInStock.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(11).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             If (Original_UnitsOnOrder.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(13).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(14).Value = (CShort(Original_UnitsOnOrder.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(13).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Original_ReorderLevel.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(15).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(16).Value = (CShort(Original_ReorderLevel.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(15).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(17).Value = (DirectCast(0, Object))
+            Me.Adapter.DeleteCommand.Parameters(17).Value = (CObj(0))
             Me.Adapter.DeleteCommand.Parameters(18).Value = (CBool(Original_Discontinued))
             If (Original_EAN13 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(19).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(19).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(20).Value = (CStr(Original_EAN13))
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
@@ -2185,65 +2185,65 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
             If (Original_ProductName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ProductName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(11).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(12).Value = (CStr(Original_ProductName))
             End If
             If (Original_SupplierID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(13).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(14).Value = (CInt(Original_SupplierID.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(13).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Original_CategoryID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(15).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(16).Value = (CInt(Original_CategoryID.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(15).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (Original_QuantityPerUnit Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(17).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(17).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(18).Value = (CStr(Original_QuantityPerUnit))
             End If
             If (Original_UnitPrice.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(19).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(20).Value = (CDec(Original_UnitPrice.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(19).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
             If (Original_UnitsInStock.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(21).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(22).Value = (CShort(Original_UnitsInStock.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(21).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             If (Original_UnitsOnOrder.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(23).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(24).Value = (CShort(Original_UnitsOnOrder.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(23).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
             If (Original_ReorderLevel.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(25).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(26).Value = (CShort(Original_ReorderLevel.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(25).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(27).Value = (DirectCast(0, Object))
+            Me.Adapter.UpdateCommand.Parameters(27).Value = (CObj(0))
             Me.Adapter.UpdateCommand.Parameters(28).Value = (CBool(Original_Discontinued))
             If (Original_EAN13 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(29).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(29).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(30).Value = (CStr(Original_EAN13))
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
@@ -2493,8 +2493,8 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
                 '
                 If (Me._categoriesTableAdapter IsNot Nothing) Then
                     revertConnections.Add(Me._categoriesTableAdapter, Me._categoriesTableAdapter.Connection)
-                    Me._categoriesTableAdapter.Connection = (DirectCast(workConnection, Global.System.Data.OleDb.OleDbConnection))
-                    Me._categoriesTableAdapter.Transaction = (DirectCast(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
+                    Me._categoriesTableAdapter.Connection = (CType(workConnection, Global.System.Data.OleDb.OleDbConnection))
+                    Me._categoriesTableAdapter.Transaction = (CType(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
                     If Me._categoriesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._categoriesTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._categoriesTableAdapter.Adapter)
@@ -2502,8 +2502,8 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
                 End If
                 If (Me._productsTableAdapter IsNot Nothing) Then
                     revertConnections.Add(Me._productsTableAdapter, Me._productsTableAdapter.Connection)
-                    Me._productsTableAdapter.Connection = (DirectCast(workConnection, Global.System.Data.OleDb.OleDbConnection))
-                    Me._productsTableAdapter.Transaction = (DirectCast(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
+                    Me._productsTableAdapter.Connection = (CType(workConnection, Global.System.Data.OleDb.OleDbConnection))
+                    Me._productsTableAdapter.Transaction = (CType(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
                     If Me._productsTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._productsTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._productsTableAdapter.Adapter)
@@ -2570,11 +2570,11 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
                     workConnection.Close()
                 End If
                 If (Me._categoriesTableAdapter IsNot Nothing) Then
-                    Me._categoriesTableAdapter.Connection = (DirectCast(revertConnections(Me._categoriesTableAdapter), Global.System.Data.OleDb.OleDbConnection))
+                    Me._categoriesTableAdapter.Connection = (CType(revertConnections(Me._categoriesTableAdapter), Global.System.Data.OleDb.OleDbConnection))
                     Me._categoriesTableAdapter.Transaction = Nothing
                 End If
                 If (Me._productsTableAdapter IsNot Nothing) Then
-                    Me._productsTableAdapter.Connection = (DirectCast(revertConnections(Me._productsTableAdapter), Global.System.Data.OleDb.OleDbConnection))
+                    Me._productsTableAdapter.Connection = (CType(revertConnections(Me._productsTableAdapter), Global.System.Data.OleDb.OleDbConnection))
                     Me._productsTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
@@ -2676,7 +2676,7 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-            Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements IComparer(Of Global.System.Data.DataRow).Compare
+            Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements System.Collections.Generic.IComparer(Of Global.System.Data.DataRow).Compare
                 If Object.ReferenceEquals(row1, row2) Then
                     Return 0
                 End If
@@ -2708,4 +2708,4 @@ Namespace MailMergeServer.nwindDataSetTableAdapters
     End Class
 End Namespace
 
-'#pragma warning restore 1591
+#Enable Warning 1591

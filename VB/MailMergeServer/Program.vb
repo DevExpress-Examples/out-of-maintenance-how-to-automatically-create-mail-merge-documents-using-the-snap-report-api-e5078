@@ -1,19 +1,19 @@
-﻿#Region "#References"
+﻿#Region "#Usings"
+Imports DevExpress.Snap
+Imports DevExpress.Snap.Core.API
+Imports DevExpress.XtraRichEdit
+Imports MailMergeServer.nwindDataSetTableAdapters
 Imports System
 Imports System.Data.OleDb
 Imports System.IO
-Imports DevExpress.Snap
-Imports DevExpress.XtraRichEdit
-Imports MailMergeServer.nwindDataSetTableAdapters
-Imports DevExpress.Snap.Core.API
 ' ...
-#End Region ' #References
-#Region "#Code"
+#End Region ' #Usings
+
 Namespace MailMergeServer
     Friend Class Program
 
-        Private Const defaultTemplateFileName As String = "..\..\template.snx"
-        Private Const defaultOutputFileName As String = "..\..\..\mailmerge.rtf"
+        Private Const defaultTemplateFileName As String = "template.snx"
+        Private Const defaultOutputFileName As String = "mailmerge.rtf"
 
         Shared Sub Main(ByVal args() As String)
             Console.WriteLine("Mail Merge Server")
@@ -39,7 +39,7 @@ Namespace MailMergeServer
             End If
             Console.WriteLine("Template file: {0}", (New FileInfo(templateFileName)).FullName)
             Console.WriteLine("Target file:   {0}", (New FileInfo(outputFileName)).FullName)
-
+'            #Region "#ServerCode"
             Dim server As New SnapDocumentServer()
 
             AddHandler server.SnapMailMergeRecordStarted, AddressOf server_SnapMailMergeRecordStarted
@@ -50,6 +50,7 @@ Namespace MailMergeServer
             server.Document.DataSource = dataSource
             Console.Write("Performing mail merge... ")
             server.SnapMailMerge(outputFileName, DocumentFormat.Rtf)
+'            #End Region ' #ServerCode
             Console.WriteLine("Ok!")
             Console.Write("Press any key...")
             Console.ReadKey()
@@ -59,7 +60,7 @@ Namespace MailMergeServer
         #Region "#RecordFinished"
         Private Shared Sub server_SnapMailMergeRecordFinished(ByVal sender As Object, ByVal e As SnapMailMergeRecordFinishedEventArgs)
             If e.RecordIndex = 3 Then
-            e.RecordDocument.AppendText("This is the third data record in the data source" & ControlChars.CrLf)
+            e.RecordDocument.AppendText("This is the third data record." & ControlChars.CrLf)
             End If
         End Sub
         #End Region ' #RecordFinished
@@ -73,7 +74,6 @@ Namespace MailMergeServer
                     If snImage IsNot Nothing Then
                         If snImage.DataFieldName = "Picture" Then
                             snImage.BeginUpdate()
-                            snImage.ImageSizeMode = DevExpress.XtraPrinting.ImageSizeMode.Tile
                             snImage.ScaleX = snImage.ScaleX * 2
                             snImage.ScaleY = snImage.ScaleY * 2
                             snImage.EndUpdate()
@@ -108,4 +108,3 @@ Namespace MailMergeServer
         End Function
     End Class
 End Namespace
-#End Region ' #Code
