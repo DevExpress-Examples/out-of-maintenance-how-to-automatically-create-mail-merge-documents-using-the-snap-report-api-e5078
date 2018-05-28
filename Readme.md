@@ -1,4 +1,4 @@
-# How to automatically create mail-merge documents using the Snap Document Server
+# How to automatically create mail-merge documents using the Snap Report API
 
 
 <p>This example demonstrates how to use the <a href="http://documentation.devexpress.com/#WindowsForms/CustomDocument14525"><u>Snap API</u></a> to automatically generate <a href="https://documentation.devexpress.com/#WindowsForms/CustomDocument16044"><u>master-detail mail merge</u></a> documents by the <a href="http://documentation.devexpress.com/#DocumentServer/CustomDocument15188">DevExpress Snap Report API</a>.</p>
