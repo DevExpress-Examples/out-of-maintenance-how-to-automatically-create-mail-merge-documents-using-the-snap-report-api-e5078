@@ -47,9 +47,10 @@ Namespace MailMergeServer
 
             server.LoadDocument(templateFileName)
             Dim dataSource As Object = CreateDataSource()
-            server.Document.DataSource = dataSource
+            Dim options As SnapMailMergeExportOptions = server.Document.CreateSnapMailMergeExportOptions()
+			options.DataSource = dataSource
             Console.Write("Performing mail merge... ")
-            server.SnapMailMerge(outputFileName, DocumentFormat.Rtf)
+            server.SnapMailMerge(options, outputFileName, DocumentFormat.Rtf)
 '            #End Region ' #ServerCode
             Console.WriteLine("Ok!")
             Console.Write("Press any key...")
