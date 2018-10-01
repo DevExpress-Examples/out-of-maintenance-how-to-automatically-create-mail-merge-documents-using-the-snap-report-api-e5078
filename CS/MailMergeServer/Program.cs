@@ -2,6 +2,7 @@
 using DevExpress.Snap;
 using DevExpress.Snap.Core.API;
 using DevExpress.XtraRichEdit;
+using DevEspress.Snap.Core.Options;
 using MailMergeServer.nwindDataSetTableAdapters;
 using System;
 using System.Data.OleDb;
