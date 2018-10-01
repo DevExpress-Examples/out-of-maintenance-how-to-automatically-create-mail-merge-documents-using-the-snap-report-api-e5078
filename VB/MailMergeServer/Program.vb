@@ -1,6 +1,7 @@
 ﻿#Region "#Usings"
 Imports DevExpress.Snap
 Imports DevExpress.Snap.Core.API
+Imports DevExress.Snap.Core.Options
 Imports DevExpress.XtraRichEdit
 Imports MailMergeServer.nwindDataSetTableAdapters
 Imports System
