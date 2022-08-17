@@ -5,6 +5,9 @@
 <!-- default badges end -->
 # How to automatically create mail-merge documents using the Snap Report API
 
+> **Note**
+>
+> As you may already know, the [WinForms Snap control](https://docs.devexpress.com/WindowsForms/11373/controls-and-libraries/snap) and [Snap Report API](https://docs.devexpress.com/OfficeFileAPI/15188/snap-report-api) are now in maintenance support mode. No new features or capabilities are incorporated into these products. We recommend that you use [DevExpress Reporting](https://docs.devexpress.com/XtraReports/2162/reporting) tool to generate, edit, print, and export your business reports/documents.
 
 <p>This example demonstrates how to use the <a href="http://documentation.devexpress.com/#WindowsForms/CustomDocument14525"><u>Snap API</u></a> to automatically generate <a href="https://documentation.devexpress.com/#WindowsForms/CustomDocument16044"><u>master-detail mail merge</u></a> documents by the <a href="http://documentation.devexpress.com/#DocumentServer/CustomDocument15188">DevExpress Snap Report API</a>.</p>
 <p>After running this example, a console application creates a document that is exported to an RTF file and opened by default program.</p>
